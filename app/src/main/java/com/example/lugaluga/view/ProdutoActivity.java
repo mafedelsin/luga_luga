@@ -1,5 +1,6 @@
 package com.example.lugaluga.view;
 
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +29,7 @@ public class ProdutoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_produto);
 
         Toolbar myToolbar =(Toolbar) findViewById(R.id.my_toolbar);
+        myToolbar.setTitle("Produto");
         setSupportActionBar(myToolbar);
 
         nomeProduto = findViewById(R.id.g_nomeProduto);
@@ -38,6 +40,12 @@ public class ProdutoActivity extends AppCompatActivity {
         btnAlugar = findViewById(R.id.alugaBtn);
 
         produto = getIntent().getExtras().getParcelable("produto");
+
+        if (produto.getStatus().equals ("Indisponível")){
+            btnAlugar.setEnabled(false);
+            btnAlugar.setText("Indisponível");
+
+        }
 
         nomeProduto.setText(produto.getNome());
         qtdProduto.setText(String.valueOf(produto.getQuantidade()));
@@ -53,6 +61,9 @@ public class ProdutoActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Toast.makeText(getApplicationContext(), "Concluído", Toast.LENGTH_SHORT).show();
+                        btnAlugar.setText("Solicitado");
+                        btnAlugar.setBackgroundColor(getColor(R.color.yellow));
+                        btnAlugar.setEnabled(false);
                     }
                 });
 

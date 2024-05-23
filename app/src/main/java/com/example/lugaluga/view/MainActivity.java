@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Toolbar myToolbar =(Toolbar) findViewById(R.id.my_toolbar);
+        myToolbar.setTitle("LugaLuga");
         setSupportActionBar(myToolbar);
 
         recyclerView = findViewById(R.id.Produtos);
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                         8000.00,
                         "Descrição",
                         10,
-                        "Disponível"
+                        "Indisponível"
                 );
         produtoList.add(produto);
 
@@ -103,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                         2000.00,
                         "Descrição",
                         41,
-                        "Disponível"
+                        "Indisponível"
                 );
         produtoList.add(produto);
 
@@ -130,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
                         4000.00,
                         "Descrição",
                         89,
-                        "Disponível"
+                        "Indisponível"
                 );
         produtoList.add(produto);
 
